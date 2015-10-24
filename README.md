@@ -1,8 +1,6 @@
 [![Circle CI](https://circleci.com/gh/andrewdamelio/react-redux-boilerplate/tree/master.svg?style=svg&circle-token=35697916f8fc181b59f088c95a8dad886fc610a3)](https://circleci.com/gh/andrewdamelio/react-redux-boilerplate/tree/master)
 
-# React / Redux Boilerplate
-
-[Demo - react-redux-boilerplate](http://andrewdamel.io/dev/react-redux)
+# LolQueen Redux front-end
 
 #### Core libraries and tools:
 - React (with JSX)
@@ -48,3 +46,6 @@ $ http-server -p 8080 .
 
 ```
 Open http://localhost:8080 in your browser.
+
+## Acknowledgements
+This application was built on top of Andrew's [React Redux Boilerplate](https://github.com/andrewdamelio/react-redux-boilerplate), so special thanks to him!

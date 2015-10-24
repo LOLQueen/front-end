@@ -1,4 +1,5 @@
 import 'babel-core/polyfill';
+import 'basscss/css/basscss.css';
 import React from 'react';
 import { Provider } from 'react-redux';
 import { ReduxRouter } from 'redux-router';
@@ -23,7 +24,7 @@ React.render(
         <ReduxRouter />
       }
     </Provider>
-    <DebugPanel top left bottom>
+    <DebugPanel top right bottom>
       <DevTools store={ store }
                 monitor={ LogMonitor }
                 visibleOnLoad />

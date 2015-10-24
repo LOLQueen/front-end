@@ -1,21 +1,54 @@
-import { INCREMENT, DECREMENT } from '../constants';
+import {
+  SELECT_SUMMONER,
+  LOAD_SUMMONER,
+  LOAD_MATCHES,
+} from '../constants';
 
-export function increment() {
+import fetch from 'isomorphic-fetch';
+const SERVER_URL = 'http://localhost:9000';
+
+export function selectSummoner(name) {
   return {
-    type: INCREMENT,
+    type: SELECT_SUMMONER,
+    payload: name,
   };
 }
 
-export function decrement() {
+export function loadSummoner(summoner) {
   return {
-    type: DECREMENT,
+    type: LOAD_SUMMONER,
+    payload: summoner,
   };
 }
 
-export function incrementIfEven() {
-  return (dispatch, getState) => {
-    if (getState().counter.get('value') % 2 === 0) {
-      return dispatch(increment());
-    }
+export function loadMatches(summoner, matches) {
+  return {
+    type: LOAD_MATCHES,
+    payload: {
+      name: summoner.name,
+      matches: matches,
+    },
+  };
+}
+
+export function fetchMatches(region, summoner) {
+  return async function thunk(dispatch) {
+    const url = `${SERVER_URL}/${region}/matches?summoner-id=${summoner.id}`;
+    const response = await fetch(url);
+    const matches = await response.json();
+    dispatch(loadMatches(summoner, matches));
+  };
+}
+
+export function fetchSummoner(region, summonerName) {
+  return async function thunk(dispatch) {
+    const url = `${SERVER_URL}/${region}/summoner?names=${summonerName}`;
+    const response = await fetch(url);
+    const json = await response.json();
+    const id = Object.keys(json)[0];
+    const summoner = json[id];
+    dispatch(loadSummoner(summoner));
+    dispatch(selectSummoner(summoner.name));
+    await fetchMatches(region, summoner)(dispatch);
   };
 }

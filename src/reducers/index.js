@@ -2,7 +2,7 @@ import {
   SELECT_SUMMONER,
   LOAD_SUMMONER,
   LOAD_MATCHES,
-} from '../constants';
+} from '../constants/actions';
 
 import { combineReducers } from 'redux';
 import { routerStateReducer  } from 'redux-router';

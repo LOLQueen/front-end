@@ -2,7 +2,7 @@ import {
   SELECT_SUMMONER,
   LOAD_SUMMONER,
   LOAD_MATCHES,
-} from '../constants';
+} from '../constants/actions';
 
 import fetch from 'isomorphic-fetch';
 const SERVER_URL = 'http://localhost:9000';

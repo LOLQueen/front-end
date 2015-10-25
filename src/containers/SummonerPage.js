@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fetchSummoner } from '../actions/counter';
+import { fetchSummoner } from '../actions';
 import MatchList from '../components/MatchList';
 
 import {Map, List} from 'immutable';

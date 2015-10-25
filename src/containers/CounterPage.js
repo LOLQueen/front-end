@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Counter from '../components/Counter';
-import * as CounterActions from '../actions/counter';
+import * as CounterActions from '../actions';
 
 @connect(mapState, mapActions)
 export default class CounterApp extends Component {

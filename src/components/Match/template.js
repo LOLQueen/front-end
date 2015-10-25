@@ -5,7 +5,7 @@ export default function(match) {
   const info = match.get('info', Map());
   const didWin = info.get('didWin', false);
   const queueType = info.get('queueType');
-  const occurredAt = info.get('occuredAt');
+  const occurredAt = info.get('occurredAt');
 
   const champion = match.get('champion', Map());
   const spells = match.get('spells', List());

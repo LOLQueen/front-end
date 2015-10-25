@@ -1,19 +1,25 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router';
+import { pushState } from 'redux-router';
+// import { Link } from 'react-router';
 
 @connect(mapReduxStateToProps)
 export default class LandingPage extends Component {
+  static propTypes = {
+    dispatch: PropTypes.func.isRequired,
+  };
+
   state = {
     region: 'na',
-    summoner: '',
+    summonerName: '',
   };
 
   render() {
-    const { region, summoner } = this.state;
+    const { region, summonerName } = this.state;
     return (
-      <form>
+      <form onSubmit={::this.transitionToSummonerPage}>
         <input
+          value={summonerName}
           type="text"
           placeholder="Summoner Name"
           onChange={::this.updateSummonerName}
@@ -25,9 +31,7 @@ export default class LandingPage extends Component {
           <option value="kr">Korea</option>
           <option value="ch">China</option>
         </select>
-        <Link to={`/${region}/summoners/${summoner}`}>
-          Search
-        </Link>
+        <button type="submit">Search</button>
       </form>
     );
   }
@@ -37,7 +41,14 @@ export default class LandingPage extends Component {
   }
 
   updateSummonerName(event) {
-    this.setState({summoner: event.target.value});
+    this.setState({summonerName: event.target.value});
+  }
+
+  transitionToSummonerPage(event) {
+    event.preventDefault();
+    const { dispatch } = this.props;
+    const { region, summonerName } = this.state;
+    dispatch(pushState(null, `/${region}/summoners/${summonerName}`));
   }
 }
 

@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { fetchSummoner } from '../action-creators/SummonerPage';
 import MatchList from '../components/MatchList';
+import SummonerHeader from '../components/SummonerHeader';
 
 import {Map, List} from 'immutable';
 
@@ -23,7 +24,8 @@ export default class SummonerPage extends Component {
     const { summonerName, region, summoner } = this.props;
     return (
       <div>
-        <h2> Hi, {summonerName} from {region} </h2>
+        
+        <SummonerHeader data={summoner}/>
         <MatchList matches={summoner.get('matches', List())} />
       </div>
     );

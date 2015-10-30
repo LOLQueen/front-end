@@ -9,20 +9,14 @@ export default class MatchList extends Component {
 
   render() {
     const { matches } = this.props;
-    const jsxMatches = matches.map((match, index) => {
-      return (
-        <li key={index}>
-          <div>
-            <Match data={match}/>
-          </div>
-        </li>
-      );
-    });
+    const jsxMatches = matches.map((match, index) => (
+      <Match key={index} data={match}/>
+    ));
 
     return (
-      <ul>
+      <div className="container">
         {jsxMatches}
-      </ul>
+      </div>
     );
   }
 }

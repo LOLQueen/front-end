@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import {List} from 'immutable';
+import { List } from 'immutable';
 import Match from './Match';
 
 export default class MatchList extends Component {

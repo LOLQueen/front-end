@@ -7,7 +7,7 @@ import {
 import { combineReducers } from 'redux';
 import { routerStateReducer  } from 'redux-router';
 
-import {Map} from 'immutable';
+import { Map } from 'immutable';
 
 function stateReducer(state = Map(), action) {
   switch (action.type) {

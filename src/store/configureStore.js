@@ -15,7 +15,7 @@ const history = createHashHistory();
 
 export default function configureStore(initialState, routes) {
   const store = compose(
-    reduxReactRouter({routes, history}),
+    reduxReactRouter({ routes, history }),
     applyMiddleware(thunkMiddleware, logger),
     devTools(),
   )(createStore)(rootReducer, initialState);

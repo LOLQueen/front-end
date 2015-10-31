@@ -40,12 +40,12 @@ export default class LandingPage extends Component {
 
   updateRegion(event) {
     event.preventDefault();
-    this.setState({region: event.target.value});
+    this.setState({ region: event.target.value });
   }
 
   updateSummonerName(event) {
     event.preventDefault();
-    this.setState({summonerName: event.target.value});
+    this.setState({ summonerName: event.target.value });
   }
 
   transitionToSummonerPage(event) {

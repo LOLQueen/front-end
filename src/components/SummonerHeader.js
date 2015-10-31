@@ -8,7 +8,6 @@ export default class SummonerHeader extends Component {
 
   render() {
     const { data: summoner } = this.props;
-    console.log(summoner.toJS());
     // is info the correct key to get info from the summoner obj?
     const profileIcon = summoner.get('profileIcon', Map());
     return (

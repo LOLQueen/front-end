@@ -33,7 +33,7 @@ export function loadMatches(summoner, matches) {
 
 export function fetchMatches(region, summoner) {
   return async function thunk(dispatch) {
-    const url = `${SERVER_URL}/${region}/matches?summoner-id=${summoner.id}`;
+    const url = `${SERVER_URL}/${region}/summoners/${summoner.id}/matches`;
     const response = await fetch(url);
     const matches = await response.json();
     dispatch(loadMatches(summoner, matches));
@@ -42,7 +42,7 @@ export function fetchMatches(region, summoner) {
 
 export function fetchSummoner(region, summonerName) {
   return async function thunk(dispatch) {
-    const url = `${SERVER_URL}/${region}/summoner?names=${summonerName}`;
+    const url = `${SERVER_URL}/${region}/summoners?names=${summonerName}`;
     const response = await fetch(url);
     const json = await response.json();
     const id = Object.keys(json)[0];

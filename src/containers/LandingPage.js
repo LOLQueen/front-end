@@ -24,10 +24,13 @@ export default class LandingPage extends Component {
       <div style={styles}>
         <h1 className="center m0 mb1">LOLQueen</h1>
         <h2 className="center m0 mb2 h4">
-          Because a queen is better than her king.
+          Because why not.
         </h2>
-        <form onSubmit={::this.transitionToSummonerPage}>
-          <select ref="region">
+        <form
+          className="flex"
+          onSubmit={::this.transitionToSummonerPage}
+        >
+          <select ref="region" className="block field not-round">
             <option value="na">North America</option>
             <option value="euw">Europe West</option>
             <option value="eue">Europe East</option>
@@ -41,6 +44,7 @@ export default class LandingPage extends Component {
               placeholder="Summoner Name"
               ref="summonerName"
               required
+              className="block field"
             />
           </label>
           <button type="submit" className="btn btn-primary">

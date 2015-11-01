@@ -31,7 +31,7 @@ export default class Match extends Component {
     ));
 
     return (
-      <div className="mb3 border-bottom border-left border-right">
+      <div className="mb3 border rounded">
         <MatchSummary data={match} />
         <div className="flex flex-justify flex-center m2">
           <ChampionIcon data={champion} />

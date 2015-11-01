@@ -25,7 +25,7 @@ export default class MatchSummary extends Component {
         </div>
         <div className="m1">
           <div className="center">DURATION</div>
-          <div className="center">null</div>
+          <div className="center">{info.get('gameLength') || 'null'}</div>
         </div>
         <div className="m1">
           <div className="center">RESULT</div>

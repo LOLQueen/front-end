@@ -8,8 +8,9 @@ const styles = {
   'display': 'flex',
   'align-items': 'center',
   'justify-content': 'center',
+  'flex-direction': 'column',
   'background-image': 'url("./src/assets/landing.jpg")',
-  'background-size': '100% 100%',
+  'background-size': 'cover',
 };
 
 @connect(mapReduxStateToProps)
@@ -21,9 +22,11 @@ export default class LandingPage extends Component {
   render() {
     return (
       <div style={styles}>
-        <form
-          onSubmit={::this.transitionToSummonerPage}
-        >
+        <h1 className="center m0 mb1">LOLQueen</h1>
+        <h2 className="center m0 mb2 h4">
+          Because a queen is more powerful than her king.
+        </h2>
+        <form onSubmit={::this.transitionToSummonerPage}>
           <select ref="region">
             <option value="na">North America</option>
             <option value="euw">Europe West</option>

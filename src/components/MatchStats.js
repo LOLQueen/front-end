@@ -11,7 +11,7 @@ export default class MatchStats extends Component {
     const kills = stats.get('championsKilled', 0);
     const assists = stats.get('assists', 0);
     const deaths = stats.get('numDeaths', 0);
-    const KDA = String((kills + assists) / (deaths || 1)).slice(0, 3);
+    const KDA = ((kills + assists) / (deaths || 1)).toFixed(2);
 
     return (
       <div>

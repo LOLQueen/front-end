@@ -8,6 +8,8 @@ const styles = {
   'display': 'flex',
   'align-items': 'center',
   'justify-content': 'center',
+  'background-image': 'url("./src/assets/landing.jpg")',
+  'background-size': '100% 100%',
 };
 
 @connect(mapReduxStateToProps)
@@ -18,8 +20,8 @@ export default class LandingPage extends Component {
 
   render() {
     return (
+      <div style={styles}>
         <form
-          style={styles}
           onSubmit={::this.transitionToSummonerPage}
         >
           <select ref="region">
@@ -42,6 +44,7 @@ export default class LandingPage extends Component {
             Search
           </button>
         </form>
+      </div>
     );
   }
 

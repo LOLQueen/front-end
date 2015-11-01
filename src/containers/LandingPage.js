@@ -24,7 +24,7 @@ export default class LandingPage extends Component {
       <div style={styles}>
         <h1 className="center m0 mb1">LOLQueen</h1>
         <h2 className="center m0 mb2 h4">
-          Because a queen is more powerful than her king.
+          Because a queen is better than her king.
         </h2>
         <form onSubmit={::this.transitionToSummonerPage}>
           <select ref="region">

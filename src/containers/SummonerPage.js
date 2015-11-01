@@ -21,9 +21,12 @@ export default class SummonerPage extends Component {
   }
 
   render() {
-    const { summoner } = this.props;
+    const { summoner, summonerName } = this.props;
     return (
       <div>
+        <h1 className="h1 center">
+          Welcome to LOLQueen, {summonerName}!
+        </h1>
         <SummonerHeader data={summoner}/>
         <MatchList matches={summoner.get('matches', List())} />
       </div>

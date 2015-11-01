@@ -16,20 +16,20 @@ export default class MatchSummary extends Component {
     return (
       <div className="flex flex-justify bg-silver">
         <div className="m1">
-          <div className="center">QUEUE TYPE</div>
-          <div className="center">{queueType}</div>
+          <div className="center bold h5">QUEUE TYPE</div>
+          <div className="center h4">{queueType}</div>
         </div>
         <div className="m1">
-          <div className="center">WHEN</div>
-          <div className="center">{occurredAt}</div>
+          <div className="center bold h5">WHEN</div>
+          <div className="center h4">{occurredAt}</div>
         </div>
         <div className="m1">
-          <div className="center">DURATION</div>
-          <div className="center">{info.get('gameLength') || 'null'}</div>
+          <div className="center bold h5">DURATION</div>
+          <div className="center h4">{info.get('gameLength') || 'null'}</div>
         </div>
         <div className="m1">
-          <div className="center">RESULT</div>
-          <div className="center">{info.get('didWin') ? 'Won!' : 'Lost!'}</div>
+          <div className="center bold h5">RESULT</div>
+          <div className="center h4">{info.get('didWin') ? 'Won!' : 'Lost!'}</div>
         </div>
       </div>
     );

@@ -27,7 +27,7 @@ React.render(
     <DebugPanel top right bottom>
       <DevTools store={ store }
                 monitor={ LogMonitor }
-                visibleOnLoad />
+                visibleOnLoad={false}/>
     </DebugPanel>
   </div>,
   document.getElementById('root')

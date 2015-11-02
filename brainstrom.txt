@@ -1,16 +1,35 @@
 actions:
 
+  - SUMMONER_FETCH (async)
   - SUMMONER_REQUEST
-  - SUMMONER_REQUEST_SUCCESS
-  - SUMMONER_REQUEST_FAILURE
+    - default properties:
+      {
+        isFetching: false,
+        didInvalidate: true,
+        id: null,
+        matches: {
+          isFetching: false,
+          didInvalidate: true,
+          ids: []
+        }
+      }
+    - initialize summoner in summoners map
+    - set isFetching to true
+  - SUMMONER_RESPONSE
+    - initialize or append to summoners map in entities map
+    - set isFetching to false and didInvalidate to false in summoners map
+    -
   - SUMMONER_INVALIDATE
   - MATCHES_REQUEST
-  - MATCHES_REQUEST_SUCCESS
-  - MATCHES_REQUEST_FAILURE
+  - MATCHES_FETCH (async)
+  - MATCHES_RESPONSE
   - MATCHES_INVALIDATE
+{
+  router : {
 
-  {
-    selected: 36421182,
+  },
+  lolqueen: {
+    selected: na/azncr4ck,
     entities: {
       summoners: {
         36421182: { /* api response */ },
@@ -22,10 +41,16 @@ actions:
       }
     },
     summoners: {
-      36421182: {
+      na/azncr4ck: {
         isFetching: true,
         didInvalidate: false,
-        matches: [1996863497, 1996906037],
+        id: 36421182,
+        matches: {
+          isFetching: true,
+          didInvalidate: false,
+          ids: [1996906037, 1996863497]
+        },
       }
     }
   }
+}

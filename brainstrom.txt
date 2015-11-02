@@ -1,0 +1,31 @@
+actions:
+
+  - SUMMONER_REQUEST
+  - SUMMONER_REQUEST_SUCCESS
+  - SUMMONER_REQUEST_FAILURE
+  - SUMMONER_INVALIDATE
+  - MATCHES_REQUEST
+  - MATCHES_REQUEST_SUCCESS
+  - MATCHES_REQUEST_FAILURE
+  - MATCHES_INVALIDATE
+
+  {
+    selected: 36421182,
+    entities: {
+      summoners: {
+        36421182: { /* api response */ },
+        390914: { /* api response */ }
+      },
+      matches: {
+        1996906037: { /* api response */ },
+        1996863497: { /* api response */ }
+      }
+    },
+    summoners: {
+      36421182: {
+        isFetching: true,
+        didInvalidate: false,
+        matches: [1996863497, 1996906037],
+      }
+    }
+  }

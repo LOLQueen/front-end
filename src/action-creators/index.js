@@ -1,5 +1,5 @@
-import { createAction as makeAC } from 'redux-actions';
 import {
+  SUMMONER_SELECT,
   SUMMONER_REQUEST,
   SUMMONER_RESPONSE,
   SUMMONER_INVALIDATE,
@@ -11,7 +11,7 @@ import {
 import { head, values, merge } from 'ramda';
 import { fetchFromAPI, makeKey } from '../utils';
 
-function createRequestAC(ACTION) {
+function createSimpleAC(ACTION) {
   return (region, name) => ({
     type: ACTION,
     payload: makeKey({ region, name }),
@@ -19,7 +19,7 @@ function createRequestAC(ACTION) {
 }
 
 function createResponseAC(ACTION) {
-  return (response) => {
+  return response => {
     const action = {
       type: ACTION,
       payload: response,
@@ -30,13 +30,14 @@ function createResponseAC(ACTION) {
   };
 }
 
-const summonerRequest = createRequestAC(SUMMONER_REQUEST);
 const summonerResponse = createResponseAC(SUMMONER_RESPONSE);
-const matchesRequest = createRequestAC(MATCHES_REQUEST);
 const matchesResponse = createResponseAC(MATCHES_RESPONSE);
 
-export const summonerInvalidate = makeAC(SUMMONER_INVALIDATE);
-export const matchesInvalidate = makeAC(MATCHES_INVALIDATE);
+const matchesRequest = createSimpleAC(MATCHES_REQUEST);
+const summonerRequest = createSimpleAC(SUMMONER_REQUEST);
+export const summonerInvalidate = createSimpleAC(SUMMONER_INVALIDATE);
+export const matchesInvalidate = createSimpleAC(MATCHES_INVALIDATE);
+export const summonerSelect = createSimpleAC(SUMMONER_SELECT);
 
 function shouldFetch(entity) {
   if (!entity) return true;
@@ -46,8 +47,7 @@ function shouldFetch(entity) {
 
 function shouldFetchSummoner(state, region, name) {
   const key = makeKey({ region, name });
-  const lookupArray = ['summoners', key];
-  const summoner = state.lolqueen.getIn(lookupArray, null);
+  const summoner = state.main.getIn(['summoners', key], null);
   return shouldFetch(summoner);
 }
 
@@ -66,19 +66,13 @@ function fetchSummoner(region, name) {
     try {
       const payload = await fetchFromAPI(resource);
       const summoner = head(values(payload));
-      dispatch(summonerResponse(summoner));
+      const key = makeKey({ region, name });
+      dispatch(summonerResponse({ summoner, key }));
       dispatch(fetchMatches(region, summoner));
     } catch (ex) {
       dispatch(summonerResponse(ex));
     }
   };
-}
-
-function shouldFetchMatches(state, region, name) {
-  const key = makeKey({ region, name });
-  const lookupArray = ['summoners', key, 'matches'];
-  const matches = state.lolqueen.getIn(lookupArray, null);
-  return shouldFetch(matches);
 }
 
 function fetchMatches(region, { name, id }) {
@@ -87,11 +81,18 @@ function fetchMatches(region, { name, id }) {
     dispatch(matchesRequest(region, name));
     try {
       const matches = await fetchFromAPI(resource);
-      dispatch(matchesResponse(matches));
+      const key = makeKey({ region, name });
+      dispatch(matchesResponse({ key, matches }));
     } catch (ex) {
       dispatch(matchesResponse(ex));
     }
   };
+}
+
+function shouldFetchMatches(state, region, name) {
+  const key = makeKey({ region, name });
+  const matches = state.main.getIn(['summoners', key, 'matches'], null);
+  return shouldFetch(matches);
 }
 
 export function fetchMatchesIfNeeded(region, summoner) {

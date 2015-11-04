@@ -13,7 +13,6 @@ actions:
           ids: []
         }
       }
-    - initialize summoner in summoners map
     - set isFetching to true
   - SUMMONER_RESPONSE
     - initialize or append to summoners map in entities map
@@ -32,8 +31,8 @@ actions:
     selected: na/azncr4ck,
     entities: {
       summoners: {
-        36421182: { /* api response */ },
-        390914: { /* api response */ }
+        na/azncr4ck: { /* api response */ },
+        na/soullessinferno: { /* api response */ }
       },
       matches: {
         1996906037: { /* api response */ },
@@ -44,7 +43,6 @@ actions:
       na/azncr4ck: {
         isFetching: true,
         didInvalidate: false,
-        id: 36421182,
         matches: {
           isFetching: true,
           didInvalidate: false,
@@ -54,3 +52,21 @@ actions:
     }
   }
 }
+
+SummonerPage
+{
+  params: {
+    reigon: 'na',
+    summonerName: 'azncr4ck',
+  },
+  summoner: {
+    isFetching: false,
+    data: { /*  API response  */}
+    matches: {
+      isFetching: true,
+      data: { /*  API RESPONSE  */}
+    }
+  }
+}
+
+note: make the summoner have a region attribute

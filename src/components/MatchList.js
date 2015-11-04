@@ -1,15 +1,17 @@
 import React, { Component, PropTypes } from 'react';
-import { List } from 'immutable';
+import { Map } from 'immutable';
 import Match from './Match';
 
 export default class MatchList extends Component {
   static propTypes = {
-    matches: PropTypes.instanceOf(List).isRequired,
+    matches: PropTypes.instanceOf(Map).isRequired,
   };
 
   render() {
     const { matches } = this.props;
-    const jsxMatches = matches.map((match, index) => (
+
+    const data = matches.get('data', Map());
+    const jsxMatches = data.map((match, index) => (
       <Match key={index} data={match}/>
     ));
 

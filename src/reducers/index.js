@@ -1,34 +1,122 @@
 import {
-  SELECT_SUMMONER,
-  LOAD_SUMMONER,
-  LOAD_MATCHES,
+  SUMMONER_SELECT,
+  SUMMONER_REQUEST,
+  SUMMONER_RESPONSE,
+  SUMMONER_INVALIDATE,
+  MATCHES_REQUEST,
+  MATCHES_RESPONSE,
+  MATCHES_INVALIDATE,
 } from '../constants/actions';
 
 import { combineReducers } from 'redux';
-import { routerStateReducer  } from 'redux-router';
+import { routerStateReducer } from 'redux-router';
 
-import { Map } from 'immutable';
+import { handleActions } from 'redux-actions';
+import { Map, List } from 'immutable';
 
-function stateReducer(state = Map(), action) {
-  switch (action.type) {
-    case SELECT_SUMMONER:
-      return state.set('selectedSummoner', action.payload);
-    case LOAD_SUMMONER:
-      return state.update('summoners', (summoners = Map()) => (
-        summoners.merge({
-          [action.payload.name]: action.payload,
-        })
-      ));
-    case LOAD_MATCHES:
-      return state.mergeIn(['summoners', action.payload.name], {
-        matches: action.payload.matches,
+
+const main = handleActions({
+
+  [SUMMONER_SELECT]: (state, action) => {
+    const key = action.payload;
+    return state.set('selected', key);
+  },
+
+  [SUMMONER_REQUEST]: (state, action) => {
+    const key = action.payload;
+    return state.mergeDeep({
+      summoners: {
+        [key]: {
+          isFetching: true,
+          didInvalidate: false,
+        },
+      },
+    });
+  },
+
+  [SUMMONER_RESPONSE]: (state, action) => {
+    if (! action.error) {
+      const { summoner, key } = action.payload;
+      return state.mergeDeep({
+        entities: {
+          summoners: {
+            [key]: summoner,
+          },
+        },
+        summoners: {
+          [key]: {
+            isFetching: false,
+            didInvalidate: false,
+          },
+        },
       });
-    default:
-      return state;
-  }
-}
+    }
+  },
+
+  [SUMMONER_INVALIDATE]: (state, action) => {
+    const key = action.payload;
+    return state.mergeDeep({
+      summoners: {
+        [key]: {
+          didInvalidate: true,
+        },
+      },
+    });
+  },
+
+  [MATCHES_REQUEST]: (state, action) => {
+    const key = action.payload;
+    return state.mergeDeep({
+      summoners: {
+        [key]: {
+          matches: {
+            isFetching: true,
+            didInvalidate: false,
+          },
+        },
+      },
+    });
+  },
+
+  [MATCHES_RESPONSE]: (state, action) => {
+    if (! action.error) {
+      const { matches, key } = action.payload;
+      const s1 = state.mergeDeep({
+        entities: {
+          matches: matches,
+        },
+        summoners: {
+          [key]: {
+            matches: {
+              isFetching: false,
+              didInvalidate: false,
+            },
+          },
+        },
+      });
+
+      /*  Arrays are treated as regular objects by .mergeDeep */
+      return s1.setIn(
+        ['summoners', key, 'matches', 'ids'], List(Object.keys(matches))
+      );
+    }
+  },
+
+  [MATCHES_INVALIDATE]: (state, action) => {
+    const key = action.payload;
+    return state.mergeDeep({
+      summoners: {
+        [key]: {
+          matches: {
+            didInvalidate: true,
+          },
+        },
+      },
+    });
+  },
+}, Map());
 
 export default combineReducers({
   router: routerStateReducer,
-  lolqueen: stateReducer,
+  main: main,
 });

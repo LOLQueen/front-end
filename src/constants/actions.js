@@ -1,19 +1,10 @@
-export const SELECT_SUMMONER = '@@LolQueen/SELECT_SUMMONER';
-export const LOAD_SUMMONER = '@@LolQueen/LOAD_SUMMONER';
-export const LOAD_MATCHES = '@@LolQueen/LOAD_MATCHES';
-
-function makeActions(namespace, actions) {
-  return actions.reduce((map, action) => (
-    map[action] = `${namespace}/${action}`, map
-  ), {});
-}
-
 /**
  *  All _FETCH actions are asynchronous
  *  ALL others are synchronous (for now)
  */
 
 export default makeActions('@@LOLQueen', [
+  'SUMMONER_SELECT',
   'SUMMONER_REQUEST',
   'SUMMONER_FETCH',
   'SUMMONER_RESPONSE',
@@ -23,3 +14,9 @@ export default makeActions('@@LOLQueen', [
   'MATCHES_RESPONSE',
   'MATCHES_INVALIDATE',
 ]);
+
+function makeActions(namespace, actions) {
+  return actions.reduce((map, action) => (
+    map[action] = `${namespace}/${action}`, map
+  ), {});
+}

@@ -27,7 +27,7 @@ export default class Match extends Component {
     ));
 
     const itemsJSX = items.map((item, index) => (
-      <ItemIcon key={index} data={item} />
+      <ItemIcon key={index} data={item}/>
     ));
 
     return (

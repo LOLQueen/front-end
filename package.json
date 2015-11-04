@@ -52,6 +52,7 @@
     "webpack-dev-server": "^1.11.0"
   },
   "dependencies": {
-    "isomorphic-fetch": "^2.2.0"
+    "isomorphic-fetch": "^2.2.0",
+    "ramda": "^0.18.0"
   }
 }

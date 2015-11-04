@@ -1,0 +1,72 @@
+actions:
+
+  - SUMMONER_FETCH (async)
+  - SUMMONER_REQUEST
+    - default properties:
+      {
+        isFetching: false,
+        didInvalidate: true,
+        id: null,
+        matches: {
+          isFetching: false,
+          didInvalidate: true,
+          ids: []
+        }
+      }
+    - set isFetching to true
+  - SUMMONER_RESPONSE
+    - initialize or append to summoners map in entities map
+    - set isFetching to false and didInvalidate to false in summoners map
+    -
+  - SUMMONER_INVALIDATE
+  - MATCHES_REQUEST
+  - MATCHES_FETCH (async)
+  - MATCHES_RESPONSE
+  - MATCHES_INVALIDATE
+{
+  router : {
+
+  },
+  lolqueen: {
+    selected: na/azncr4ck,
+    entities: {
+      summoners: {
+        na/azncr4ck: { /* api response */ },
+        na/soullessinferno: { /* api response */ }
+      },
+      matches: {
+        1996906037: { /* api response */ },
+        1996863497: { /* api response */ }
+      }
+    },
+    summoners: {
+      na/azncr4ck: {
+        isFetching: true,
+        didInvalidate: false,
+        matches: {
+          isFetching: true,
+          didInvalidate: false,
+          ids: [1996906037, 1996863497]
+        },
+      }
+    }
+  }
+}
+
+SummonerPage
+{
+  params: {
+    reigon: 'na',
+    summonerName: 'azncr4ck',
+  },
+  summoner: {
+    isFetching: false,
+    data: { /*  API response  */}
+    matches: {
+      isFetching: true,
+      data: { /*  API RESPONSE  */}
+    }
+  }
+}
+
+note: make the summoner have a region attribute

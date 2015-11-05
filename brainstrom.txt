@@ -23,35 +23,40 @@ actions:
   - MATCHES_FETCH (async)
   - MATCHES_RESPONSE
   - MATCHES_INVALIDATE
-{
-  router : {
 
-  },
-  lolqueen: {
-    selected: na/azncr4ck,
-    entities: {
-      summoners: {
-        na/azncr4ck: { /* api response */ },
-        na/soullessinferno: { /* api response */ }
-      },
-      matches: {
-        1996906037: { /* api response */ },
-        1996863497: { /* api response */ }
+  var state = {
+    router : {
+      params: {
+        name: azncr4ck
+        region: na
       }
     },
-    summoners: {
-      na/azncr4ck: {
-        isFetching: true,
-        didInvalidate: false,
-        matches: {
-          isFetching: true,
-          didInvalidate: false,
-          ids: [1996906037, 1996863497]
+    main: {
+      selected: na/azncr4ck,
+      entities: {
+        summoners: {
+          na/azncr4ck: { /* api response */ },
+          na/soullessinferno: { /* api response */ }
         },
+        matches: {
+          1996906037: { /* api response */ },
+          1996863497: { /* api response */ }
+        }
+      },
+      summoners: {
+        na/azncr4ck: {
+          isFetching: true,
+          matches: {
+            isFetching: true,
+            ids: [1996906037, 1996863497]
+          },
+        }
+        na/soullessinferno: {
+
+        }
       }
     }
   }
-}
 
 SummonerPage
 {
@@ -70,3 +75,18 @@ SummonerPage
 }
 
 note: make the summoner have a region attribute
+
+
+Things to do tomorrow:
+  - style the items (hover)
+  - add the empty item object (with url to empty item image)
+  - show loader on screen to show we're fetching data on front-end
+  - we need to think about the summoner header
+  - get seanan in call with us tomorrow to talk about layout matters.
+
+  New features:
+  - a new component to check if the person is in game
+    - api endpoint
+  - a new component to display more information about the Match
+    - ie: all items, all levels, all KDA, all Damage, all Wards,
+          all CS, etc.

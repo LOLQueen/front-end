@@ -9,7 +9,7 @@ import ChampionIcon from './ChampionIcon';
 import MatchSummary from './MatchSummary';
 import MatchStats from './MatchStats';
 
-export default function Match({ data: match }) {
+const Match = ({ data: match }) => {
   const spells = match.get('spells', List());
   const items = match.get('items', List());
   const trinket = match.get('trinket', null);
@@ -36,8 +36,10 @@ export default function Match({ data: match }) {
       </div>
     </div>
   );
-}
+};
 
 Match.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
+
+export default Match;

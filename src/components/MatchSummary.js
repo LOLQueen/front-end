@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-export default function MatchSummary({ data: match }) {
+export const MatchSummary = ({ data: match }) => {
   const info = match.get('info', Map());
 
   const queueType = info.get('queueType', '').replace(/_/g, ' ');
@@ -27,8 +27,10 @@ export default function MatchSummary({ data: match }) {
       </div>
     </div>
   );
-}
+};
 
 MatchSummary.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
+
+export default MatchSummary;

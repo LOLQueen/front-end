@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-export default function ItemIcon({ data: item }) {
+const ItemIcon = ({ data: item }) => {
   if (! item) return <span />;
   return (
     <img
@@ -10,8 +10,10 @@ export default function ItemIcon({ data: item }) {
       className="mb2"
     />
   );
-}
+};
 
 ItemIcon.propTypes = {
   data: PropTypes.instanceOf(Map),
 };
+
+export default ItemIcon;

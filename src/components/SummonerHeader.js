@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-export default function SummonerHeader({ data: summoner }) {
+export const SummonerHeader = ({ data: summoner }) => {
   // is info the correct key to get info from the summoner obj?
   const profileIcon = summoner.get('profileIcon', Map());
   const imgUrl = profileIcon.get('imageUrl');
@@ -18,8 +18,10 @@ export default function SummonerHeader({ data: summoner }) {
       </div>
     </div>
   );
-}
+};
 
 SummonerHeader.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
+
+export default SummonerHeader;

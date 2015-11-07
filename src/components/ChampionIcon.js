@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-export default function ChampionIcon({ data: champion }) {
+const ChampionIcon = ({ data: champion }) => {
   return (
     <div>
       <img title={champion.get('name')}
@@ -10,8 +10,10 @@ export default function ChampionIcon({ data: champion }) {
       />
     </div>
   );
-}
+};
 
 ChampionIcon.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
+
+export default ChampionIcon;

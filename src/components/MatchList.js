@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 import Match from './Match';
 
-export default function MatchList({ matches }) {
+const MatchList = ({ matches }) => {
   const data = matches.get('data', Map());
   const jsxMatches = data.map((match, index) => (
     <Match key={index} data={match}/>
@@ -13,8 +13,10 @@ export default function MatchList({ matches }) {
       {jsxMatches.valueSeq()}
     </div>
   );
-}
+};
 
 MatchList.propTypes = {
   matches: PropTypes.instanceOf(Map).isRequired,
 };
+
+export default MatchList;

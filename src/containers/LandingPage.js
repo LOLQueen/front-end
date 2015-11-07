@@ -6,11 +6,11 @@ import { pushState } from 'redux-router';
 const styles = {
   'height': '100%',
   'display': 'flex',
-  'align-items': 'center',
-  'justify-content': 'center',
-  'flex-direction': 'column',
-  'background-image': 'url("./src/assets/landing.jpg")',
-  'background-size': 'cover',
+  'alignItems': 'center',
+  'justifyContent': 'center',
+  'flexDirection': 'column',
+  'backgroundImage': 'url("./src/assets/landing.jpg")',
+  'backgroundSize': 'cover',
 };
 
 @connect(mapReduxStateToProps)
@@ -58,8 +58,8 @@ export default class LandingPage extends Component {
   transitionToSummonerPage(event) {
     event.preventDefault();
     const { dispatch } = this.props;
-    const summonerName = React.findDOMNode(this.refs.summonerName).value;
-    const region = React.findDOMNode(this.refs.region).value;
+    const summonerName = this.refs.summonerName.value;
+    const region = this.refs.region.value;
 
     if (this.isValidSummonerName(summonerName)) {
       dispatch(pushState(null, `/${region}/summoners/${summonerName}`));

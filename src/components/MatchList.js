@@ -17,7 +17,7 @@ export default class MatchList extends Component {
 
     return (
       <div className="container">
-        {jsxMatches}
+        {jsxMatches.valueSeq()}
       </div>
     );
   }

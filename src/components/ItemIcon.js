@@ -3,7 +3,7 @@ import { Map } from 'immutable';
 
 export default class ItemIcon extends Component {
   static propTypes = {
-    data: PropTypes.instanceOf(Map).isRequired,
+    data: PropTypes.instanceOf(Map),
   }
 
   render() {

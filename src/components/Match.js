@@ -6,7 +6,7 @@ import ItemIcon from './ItemIcon';
 import TrinketIcon from './TrinketIcon';
 import SpellIcon from './SpellIcon';
 import ChampionIcon from './ChampionIcon';
-import MatchSummary from './MatchSummary';
+import MatchHeader from './MatchHeader';
 import MatchStats from './MatchStats';
 
 const Match = ({ data: match }) => {
@@ -26,7 +26,7 @@ const Match = ({ data: match }) => {
 
   return (
     <div className="mb3 border rounded">
-      <MatchSummary data={match} />
+      <MatchHeader data={match} />
       <div className="flex flex-justify flex-center m2">
         <ChampionIcon data={champion} />
         <MatchStats data={stats} />

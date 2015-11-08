@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-export const MatchSummary = ({ data: match }) => {
+export const MatchHeader = ({ data: match }) => {
   const info = match.get('info', Map());
 
   const queueType = info.get('queueType', '').replace(/_/g, ' ');
@@ -29,8 +29,8 @@ export const MatchSummary = ({ data: match }) => {
   );
 };
 
-MatchSummary.propTypes = {
+MatchHeader.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
 
-export default MatchSummary;
+export default MatchHeader;

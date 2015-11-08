@@ -7,7 +7,7 @@ export const SummonerHeader = ({ data: summoner }) => {
   const summonerName = summoner.get('name');
   const level = summoner.get('level');
   return (
-    <div className="border mb4 mt2 rounded">
+    <div className="border mb4 rounded">
       <div className="p2 flex flex-center">
         <img className="mr1" src={imgUrl} />
         <div className="ml2 mr1 p1 white">

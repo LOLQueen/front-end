@@ -23,7 +23,7 @@ const Match = ({ data: match }) => {
   ));
 
   return (
-    <div className="flex border rounded mb3 bg-black">
+    <div className="flex rounded mb3 bg-black">
       <div className="flex flex-justify flex-center flex-grow px3">
         <MatchStats data={stats}/>
         <div className="flex flex-justify flex-grow px3">

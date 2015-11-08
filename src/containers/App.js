@@ -5,11 +5,16 @@ class App extends Component {
     // Injected by React Router
     const { props } = this;
     return (
-      <div>
+      <div style={styles}>
         {props.children}
       </div>
     );
   }
 }
+
+const styles = {
+  backgroundImage: 'url("./src/assets/summoner-page.jpg")',
+  backgroundSize: 'cover',
+};
 
 export default App;

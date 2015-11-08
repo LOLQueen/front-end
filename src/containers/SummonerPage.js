@@ -24,7 +24,7 @@ export default class SummonerPage extends Component {
   render() {
     const { summoner } = this.props;
     return (
-      <div className="container">
+      <div style={styles} className="container">
         <SummonerHeader data={summoner.get('data')}/>
         <MatchList matches={summoner.get('matches', List())} />
       </div>
@@ -51,3 +51,8 @@ function mapReduxStateToProps(state) {
     }),
   };
 }
+
+const styles = {
+  backgroundColor: 'black',
+  boxShadow: '0 0 100rem 20rem black',
+};

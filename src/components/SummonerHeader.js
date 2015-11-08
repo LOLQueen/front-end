@@ -10,7 +10,7 @@ export const SummonerHeader = ({ data: summoner }) => {
     <div className="border mb4 mt2 rounded">
       <div className="p2 flex flex-center">
         <img className="mr1" src={imgUrl} />
-        <div className="ml2 mr1 p1">
+        <div className="ml2 mr1 p1 white">
           <h1 className="m0 h1">{summonerName}</h1>
           <h2 className="m0 h2">level: {level}</h2>
         </div>

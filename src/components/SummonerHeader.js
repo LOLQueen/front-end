@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
+import { SCALE } from '../utils';
 
 export const SummonerHeader = ({ data: summoner }) => {
   const profileIcon = summoner.get('profileIcon', Map());
@@ -7,7 +8,8 @@ export const SummonerHeader = ({ data: summoner }) => {
   const summonerName = summoner.get('name');
   const level = summoner.get('level');
   return (
-    <div className="border mb4 rounded">
+    <div className="border bg-black mb4 rounded"
+      style={styles}>
       <div className="p2 flex flex-center">
         <img className="mr1" src={imgUrl} />
         <div className="ml2 mr1 p1 white">
@@ -21,6 +23,10 @@ export const SummonerHeader = ({ data: summoner }) => {
 
 SummonerHeader.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
+};
+
+const styles = {
+  boxShadow: `0 0 ${SCALE(2)} ${SCALE(0)} black`,
 };
 
 export default SummonerHeader;

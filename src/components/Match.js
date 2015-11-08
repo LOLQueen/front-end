@@ -23,14 +23,14 @@ const Match = ({ data: match }) => {
   ));
 
   return (
-    <div className="mb3 border rounded">
-      <div className="flex flex-justify flex-center">
-        <ChampionIcon data={champion} />
-        <MatchStats data={stats} />
-        <div>{spellsJSX}</div>
-        <div>{itemsJSX}</div>
+    <div className="flex border rounded mb3 bg-black">
+      <div className="flex flex-justify flex-center flex-grow px3">
+        <MatchStats data={stats}/>
+        <div> {itemsJSX} </div>
         <ItemIcon data={trinket} />
+        <div> {spellsJSX} </div>
       </div>
+      <ChampionIcon data={champion} />
     </div>
   );
 };

@@ -4,7 +4,8 @@ import { Map } from 'immutable';
 const ItemIcon = ({ data: item }) => {
   if (! item) return <span />;
   return (
-    <img src={item.get('imageUrl')}
+    <img style={style}
+      src={item.get('imageUrl')}
       title={`${item.get('name')} - ${item.get('description')}`}
     />
   );
@@ -12,6 +13,10 @@ const ItemIcon = ({ data: item }) => {
 
 ItemIcon.propTypes = {
   data: PropTypes.instanceOf(Map),
+};
+
+const style = {
+  boxShadow: '0 0 0.125rem white',
 };
 
 export default ItemIcon;

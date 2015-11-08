@@ -3,7 +3,8 @@ import { Map } from 'immutable';
 
 const SpellIcon = ({ data: spell }) => {
   return (
-    <img src={spell.get('imageUrl')}
+    <img style={styles}
+      src={spell.get('imageUrl')}
       title={`${spell.get('name')} - ${spell.get('description')}`}
     />
   );
@@ -11,6 +12,10 @@ const SpellIcon = ({ data: spell }) => {
 
 SpellIcon.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
+};
+
+const styles = {
+  boxShadow: '0 0 0.125rem white',
 };
 
 export default SpellIcon;

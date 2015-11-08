@@ -3,7 +3,6 @@ import { Map, List } from 'immutable';
 
 /*  Components  */
 import ItemIcon from './ItemIcon';
-import TrinketIcon from './TrinketIcon';
 import SpellIcon from './SpellIcon';
 import ChampionIcon from './ChampionIcon';
 import MatchStats from './MatchStats';
@@ -30,7 +29,7 @@ const Match = ({ data: match }) => {
         <MatchStats data={stats} />
         <div>{spellsJSX}</div>
         <div>{itemsJSX}</div>
-        <TrinketIcon data={trinket} />
+        <ItemIcon data={trinket} />
       </div>
     </div>
   );

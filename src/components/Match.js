@@ -1,6 +1,8 @@
 import React, { PropTypes } from 'react';
 import { Map, List } from 'immutable';
 
+import { SCALE } from '../utils';
+
 /*  Components  */
 import ItemIcon from './ItemIcon';
 import SpellIcon from './SpellIcon';
@@ -23,7 +25,8 @@ const Match = ({ data: match }) => {
   ));
 
   return (
-    <div className="flex rounded mb3 bg-black">
+    <div className="flex rounded mb3 bg-black"
+      style={styles}>
       <ChampionIcon data={champion} />
       <div className="flex flex-justify flex-center flex-grow px3">
         <MatchStats data={stats}/>
@@ -39,6 +42,10 @@ const Match = ({ data: match }) => {
 
 Match.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
+};
+
+const styles = {
+  boxShadow: `0 0 ${SCALE(2)} ${SCALE(0)} black`,
 };
 
 export default Match;

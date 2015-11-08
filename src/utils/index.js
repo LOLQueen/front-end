@@ -20,3 +20,5 @@ export function makeKey(summoner) {
   const { region, name } = summoner;
   return `${region}/${name}`.toLowerCase();
 }
+
+export { default as SCALE } from './scale';

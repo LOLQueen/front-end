@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-import SCALE from '../utils/scale';
+import { SCALE } from '../utils';
 
 const ItemIcon = ({ data: item }) => {
   if (! item) return <span />;

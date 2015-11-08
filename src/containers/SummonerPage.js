@@ -1,11 +1,12 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import { Map, List } from 'immutable';
+
 import { fetchSummonerIfNeeded } from '../action-creators';
-import MatchList from '../components/MatchList';
-import SummonerHeader from '../components/SummonerHeader';
 import { makeKey } from '../utils';
 
-import { Map, List } from 'immutable';
+import MatchList from '../components/MatchList';
+import SummonerHeader from '../components/SummonerHeader';
 
 @connect(mapReduxStateToProps)
 export default class SummonerPage extends Component {
@@ -25,7 +26,7 @@ export default class SummonerPage extends Component {
     const { summoner } = this.props;
     return (
       <div className="p4">
-        <div style={styles} className="container">
+        <div className="container">
           <SummonerHeader data={summoner.get('data')}/>
           <MatchList matches={summoner.get('matches', List())} />
         </div>
@@ -53,9 +54,3 @@ function mapReduxStateToProps(state) {
     }),
   };
 }
-
-const styles = {
-  backgroundColor: 'black',
-  boxShadow: '0 0 100rem 20rem black',
-  minHeight: '100%',
-};

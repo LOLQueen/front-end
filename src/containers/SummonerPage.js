@@ -57,4 +57,5 @@ function mapReduxStateToProps(state) {
 const styles = {
   backgroundColor: 'black',
   boxShadow: '0 0 100rem 20rem black',
+  minHeight: '100%',
 };

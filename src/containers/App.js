@@ -15,6 +15,7 @@ class App extends Component {
 const styles = {
   backgroundImage: 'url("./src/assets/summoner-page.jpg")',
   backgroundSize: 'cover',
+  minHeight: '100%',
 };
 
 export default App;

@@ -24,7 +24,7 @@ export default class SummonerPage extends Component {
   render() {
     const { summoner } = this.props;
     return (
-      <div>
+      <div className="container">
         <SummonerHeader data={summoner.get('data')}/>
         <MatchList matches={summoner.get('matches', List())} />
       </div>

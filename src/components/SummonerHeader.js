@@ -2,13 +2,12 @@ import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
 export const SummonerHeader = ({ data: summoner }) => {
-  // is info the correct key to get info from the summoner obj?
   const profileIcon = summoner.get('profileIcon', Map());
   const imgUrl = profileIcon.get('imageUrl');
   const summonerName = summoner.get('name');
   const level = summoner.get('level');
   return (
-    <div className="container border mb4 mt2 rounded">
+    <div className="border mb4 mt2 rounded">
       <div className="p2 flex flex-center">
         <img className="mr1" src={imgUrl} />
         <div className="ml2 mr1 p1">

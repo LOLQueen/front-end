@@ -9,7 +9,7 @@ const MatchList = ({ matches }) => {
   ));
 
   return (
-    <div className="container">
+    <div>
       {jsxMatches.valueSeq()}
     </div>
   );

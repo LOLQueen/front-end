@@ -1,5 +1,7 @@
 [![Circle CI](https://circleci.com/gh/andrewdamelio/react-redux-boilerplate/tree/master.svg?style=svg&circle-token=35697916f8fc181b59f088c95a8dad886fc610a3)](https://circleci.com/gh/andrewdamelio/react-redux-boilerplate/tree/master)
 
+[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
+
 # LolQueen Redux front-end
 
 #### Core libraries and tools:

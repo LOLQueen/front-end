@@ -6,7 +6,6 @@ import ItemIcon from './ItemIcon';
 import TrinketIcon from './TrinketIcon';
 import SpellIcon from './SpellIcon';
 import ChampionIcon from './ChampionIcon';
-import MatchHeader from './MatchHeader';
 import MatchStats from './MatchStats';
 
 const Match = ({ data: match }) => {
@@ -26,7 +25,6 @@ const Match = ({ data: match }) => {
 
   return (
     <div className="mb3 border rounded">
-      <MatchHeader data={match} />
       <div className="flex flex-justify flex-center m2">
         <ChampionIcon data={champion} />
         <MatchStats data={stats} />

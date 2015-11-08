@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
+import SCALE from '../utils/scale';
 
 const ChampionIcon = ({ data: champion }) => {
   return (
     <div>
-      <img title={champion.get('name')}
-        src={champion.get('imageUrl')}
+      <img src={champion.get('imageUrl')}
+        title={champion.get('name')}
         style={styles}
       />
     </div>
@@ -17,9 +18,9 @@ ChampionIcon.propTypes = {
 };
 
 const styles = {
-  boxShadow: '0 0 6rem 2rem black',
-  height: '6rem',
-  width: '6rem',
+  boxShadow: `0 0 ${SCALE(3)} ${SCALE(0)} black`,
+  height: SCALE(3),
+  width: SCALE(3),
 };
 
 export default ChampionIcon;

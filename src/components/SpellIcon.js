@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
+import SCALE from '../utils/scale';
 
 const SpellIcon = ({ data: spell }) => {
   return (
-    <img style={styles}
-      src={spell.get('imageUrl')}
+    <img src={spell.get('imageUrl')}
       title={`${spell.get('name')} - ${spell.get('description')}`}
+      style={styles}
     />
   );
 };
@@ -15,9 +16,9 @@ SpellIcon.propTypes = {
 };
 
 const styles = {
-  boxShadow: '0 0 0.01rem white',
-  width: '3rem',
-  height: '3rem',
+  boxShadow: `0 0 ${SCALE(-5)} white`,
+  width: SCALE(1),
+  height: SCALE(1),
 };
 
 export default SpellIcon;

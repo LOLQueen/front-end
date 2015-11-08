@@ -3,9 +3,8 @@ import { Map } from 'immutable';
 
 const SpellIcon = ({ data: spell }) => {
   return (
-    <img className="mb2"
+    <img src={spell.get('imageUrl')}
       title={`${spell.get('name')} - ${spell.get('description')}`}
-      src={spell.get('imageUrl')}
     />
   );
 };

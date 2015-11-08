@@ -24,7 +24,7 @@ const Match = ({ data: match }) => {
 
   return (
     <div className="mb3 border rounded">
-      <div className="flex flex-justify flex-center m2">
+      <div className="flex flex-justify flex-center">
         <ChampionIcon data={champion} />
         <MatchStats data={stats} />
         <div>{spellsJSX}</div>

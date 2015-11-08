@@ -6,7 +6,6 @@ const ChampionIcon = ({ data: champion }) => {
     <div>
       <img title={champion.get('name')}
         src={champion.get('imageUrl')}
-        className="mb2"
       />
     </div>
   );

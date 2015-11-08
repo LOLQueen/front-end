@@ -1,6 +1,6 @@
 import { memoize } from 'ramda';
 
-export const SCALE = memoize((n) => {
+export default memoize((n) => {
   return `${n >= 0 ? fibonacci(n + 2) : 1 / fibonacci(-n + 2)}rem`;
 });
 

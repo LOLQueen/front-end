@@ -16,7 +16,9 @@ ItemIcon.propTypes = {
 };
 
 const style = {
-  boxShadow: '0 0 0.125rem white',
+  boxShadow: '0 0 0.01rem white',
+  width: '3rem',
+  height: '3rem',
 };
 
 export default ItemIcon;

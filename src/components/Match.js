@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map, List } from 'immutable';
+import { merge } from 'ramda';
 
 import { SCALE } from '../utils';
 
@@ -46,15 +47,17 @@ Match.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
 };
 
+const base = {
+  backgroundColor: 'rgba(0, 0, 0, 0.75)',
+};
+
 const styles = {
-  true: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  true: merge(base, {
     boxShadow: `0 0 ${SCALE(-2)} ${SCALE(-100)} green`,
-  },
-  false: {
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  }),
+  false: merge(base, {
     boxShadow: `0 0 ${SCALE(-2)} ${SCALE(-100)} red`,
-  },
+  }),
 };
 
 export default Match;

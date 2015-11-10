@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
-import { SCALE } from '../utils';
 
 export const SummonerHeader = ({ data: summoner }) => {
   const profileIcon = summoner.get('profileIcon', Map());

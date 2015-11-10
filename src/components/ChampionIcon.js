@@ -18,7 +18,6 @@ ChampionIcon.propTypes = {
 };
 
 const styles = {
-  boxShadow: `0 0 ${SCALE(4)} ${SCALE(0)} black`,
   height: SCALE(3),
   width: SCALE(3),
 };

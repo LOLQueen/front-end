@@ -24,9 +24,11 @@ const Match = ({ data: match }) => {
     <ItemIcon key={index} data={item}/>
   ));
 
+  const didWin = match.getIn(['info', 'didWin'], false);
+
   return (
-    <div className="flex rounded mb3 bg-black"
-      style={styles}>
+    <div className="flex rounded mb1"
+      style={styles[didWin]}>
       <ChampionIcon data={champion} />
       <div className="flex flex-justify flex-center flex-grow px3">
         <MatchStats data={stats}/>
@@ -45,7 +47,14 @@ Match.propTypes = {
 };
 
 const styles = {
-  boxShadow: `0 0 ${SCALE(2)} ${SCALE(0)} black`,
+  true: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    boxShadow: `0 0 ${SCALE(-2)} ${SCALE(-100)} green`,
+  },
+  false: {
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    boxShadow: `0 0 ${SCALE(-2)} ${SCALE(-100)} red`,
+  },
 };
 
 export default Match;

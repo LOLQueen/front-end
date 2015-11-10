@@ -8,8 +8,7 @@ export const SummonerHeader = ({ data: summoner }) => {
   const summonerName = summoner.get('name');
   const level = summoner.get('level');
   return (
-    <div className="border bg-black mb4 rounded"
-      style={styles}>
+    <div className="border bg-black mb3 rounded">
       <div className="p2 flex flex-center">
         <img className="mr1" src={imgUrl} />
         <div className="ml2 mr1 p1 white">
@@ -23,10 +22,6 @@ export const SummonerHeader = ({ data: summoner }) => {
 
 SummonerHeader.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
-};
-
-const styles = {
-  boxShadow: `0 0 ${SCALE(2)} ${SCALE(0)} black`,
 };
 
 export default SummonerHeader;

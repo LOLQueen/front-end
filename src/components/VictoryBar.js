@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { SCALE } from '../utils';
 
 /**
- *  @class VictoryBar
+ *  @function VictoryBar
  *  @param {boolean} Victory - If the game was a win.
  *
  *  @description

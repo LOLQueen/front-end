@@ -26,6 +26,7 @@ const Match = ({ data: match }) => {
   ));
 
   const didWin = match.getIn(['info', 'didWin'], false);
+  const level = stats.get('level', null);
 
   return (
     <div className="flex rounded mb1" style={{
@@ -33,7 +34,7 @@ const Match = ({ data: match }) => {
       ...styles.base,
     }}>
       <VictoryBar victory={didWin}/>
-      <ChampionIcon data={champion} />
+      <ChampionIcon data={champion} level={level}/>
       <div className="flex flex-justify flex-center flex-grow px3">
         <MatchStats data={stats}/>
         <div className="flex flex-grow px3" style={{

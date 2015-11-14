@@ -15,9 +15,13 @@ import { SCALE } from '../utils';
  *  inline styles. Same with the backgroundColor.
  */
 
-const ChampionIcon = ({ data: champion }) => {
+const ChampionIcon = ({ data: champion, level }) => {
   return (
     <div className="relative">
+      <span className="absolute top-0 right-0 h6 white"
+        style={styles.level}>
+        {level}
+      </span>
       <img src={champion.get('imageUrl')}
         title={champion.get('name')}
         style={styles.image}
@@ -33,6 +37,7 @@ const ChampionIcon = ({ data: champion }) => {
 
 ChampionIcon.propTypes = {
   data: PropTypes.instanceOf(Map).isRequired,
+  level: PropTypes.number,
 };
 
 const IMAGE_WIDTH = SCALE(3);
@@ -45,6 +50,10 @@ const styles = {
   name: {
     width: IMAGE_WIDTH,
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
+  },
+  level: {
+    textShadow: '0rem 0rem 0rem black',
+    padding: SCALE(-2),
   },
 };
 

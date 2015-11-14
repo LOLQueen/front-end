@@ -1,15 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Map } from 'immutable';
 
-function threshholdColor(KDA) {
-  if (KDA >= 5) {
-    return 'green';
-  } else if (KDA >= 2) {
-    return 'teal';
-  }
-  return 'gray';
-}
-
 export const MatchStats = ({ data: stats }) => {
   const kills = stats.get('championsKilled', 0);
   const assists = stats.get('assists', 0);
@@ -19,20 +10,21 @@ export const MatchStats = ({ data: stats }) => {
   const neutralMinionsKilled = stats.get('neutralMinionsKilled', 0);
   const totalCS = minionsKilled + neutralMinionsKilled;
   const totalCSTitle = `${minionsKilled} Minions + ${neutralMinionsKilled} Jungle Creeps`;
-  const level = stats.get('level', 0);
 
   return (
-    <div className="white h5">
-      <div className="h4">
+    <div className="flex flex-center">
+      <div className="white h5">
+        <div>
+          <span className="bold">KDA:</span> {KDA}
+        </div>
+        <div title={totalCSTitle}>
+          <span className="bold">CS:</span> {totalCS}
+        </div>
+      </div>
+      <div className="h4 bold m2 px1 white bg-gray rounded center">
         <span>{kills} /</span>
         <span> {deaths} </span>
         <span>/ {assists}</span>
-      </div>
-      <div>
-        KDA: <span className={`bold ${threshholdColor(KDA)}`}>{KDA}</span>
-      </div>
-      <div title={totalCSTitle}>
-        CS: <span className="bold">{totalCS}</span>
       </div>
     </div>
   );

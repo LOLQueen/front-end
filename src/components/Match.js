@@ -35,7 +35,10 @@ const Match = ({ data: match }) => {
     }}>
       <VictoryBar victory={didWin}/>
       <ChampionIcon data={champion} level={level}/>
-      <div className="flex flex-justify flex-center flex-grow px3">
+      <div className="flex flex-column px1" style={styles.spells}>
+        {spellsJSX}
+      </div>
+      <div className="flex flex-justify flex-center flex-grow px2">
         <MatchStats data={stats}/>
         <div className="flex flex-grow px3" style={{
           ...styles.items,
@@ -45,7 +48,6 @@ const Match = ({ data: match }) => {
             <ItemIcon data={trinket} />
           </div>
         </div>
-        <div> {spellsJSX} </div>
       </div>
     </div>
   );
@@ -69,6 +71,9 @@ const styles = {
   },
   items: {
     justifyContent: 'flex-end',
+  },
+  spells: {
+    justifyContent: 'space-around',
   },
 };
 

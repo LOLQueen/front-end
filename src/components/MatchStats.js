@@ -8,7 +8,7 @@ export const MatchStats = ({ data: stats }) => {
   const KDA = ((kills + assists) / (deaths || 1)).toFixed(2);
 
   return (
-    <div>
+    <div className="white">
         <span title={kills}>{kills} /</span>
         <span title={deaths}> {deaths} /</span>
         <span title={assists}> {assists}</span> <br/>

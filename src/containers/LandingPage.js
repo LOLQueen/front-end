@@ -13,8 +13,8 @@ const styles = {
   'backgroundSize': 'cover',
 };
 
-@connect(mapReduxStateToProps)
-export default class LandingPage extends Component {
+
+class LandingPage extends Component {
   static propTypes = {
     dispatch: PropTypes.func.isRequired,
   };
@@ -77,3 +77,5 @@ export default class LandingPage extends Component {
 function mapReduxStateToProps() {
   return {};
 }
+
+export default connect(mapReduxStateToProps)(LandingPage);

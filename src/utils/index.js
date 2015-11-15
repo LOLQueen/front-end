@@ -1,11 +1,16 @@
 import fetch from 'isomorphic-fetch';
 const SERVER_URL = 'http://localhost:9000';
 
-export async function fetchFromAPI(url) {
+/**
+ * We cannot export aync function declarations because babel doesn't
+ * support them.
+ */
+
+export const fetchFromAPI = async (url) => {
   const response = await fetch(`${SERVER_URL}/${url}`);
   throwIfHTTPError(response);
   return response.json();
-}
+};
 
 function throwIfHTTPError(response) {
   if (! (response.status >= 200 && response.status < 400)) {

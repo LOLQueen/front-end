@@ -8,8 +8,7 @@ import { makeKey } from '../utils';
 import MatchList from '../components/MatchList';
 import SummonerHeader from '../components/SummonerHeader';
 
-@connect(mapReduxStateToProps)
-export default class SummonerPage extends Component {
+class SummonerPage extends Component {
   static propTypes = {
     params: PropTypes.object.isRequired,
     summoner: PropTypes.instanceOf(Map).isRequired,
@@ -58,3 +57,5 @@ function mapReduxStateToProps(state) {
 const styles = {
   backgroundColor: 'white',
 };
+
+export default connect(mapReduxStateToProps)(SummonerPage);

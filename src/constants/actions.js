@@ -3,7 +3,7 @@
  *  ALL others are synchronous (for now)
  */
 
-export default makeActions('@@LOLQueen', [
+module.exports = makeActions('@@LOLQueen', [
   'SUMMONER_SELECT',
   'SUMMONER_REQUEST',
   'SUMMONER_FETCH',

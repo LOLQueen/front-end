@@ -9,7 +9,7 @@ import {
 } from '../constants/actions';
 
 import { head, values, merge } from 'ramda';
-import { fetchFromAPI, makeKey } from '../utils';
+import { fetchFromAPI, makeKey } from '../utils/index';
 
 function createSimpleAC(ACTION) {
   return (region, name) => ({
@@ -52,7 +52,7 @@ function shouldFetchSummoner(state, region, name) {
 }
 
 export function fetchSummonerIfNeeded(region, name) {
-  return async function thunk(dispatch, getState) {
+  return async (dispatch, getState) => {
     if (shouldFetchSummoner(getState(), region, name)) {
       dispatch(fetchSummoner(region, name));
     }
@@ -60,7 +60,7 @@ export function fetchSummonerIfNeeded(region, name) {
 }
 
 function fetchSummoner(region, name) {
-  return async function thunk(dispatch) {
+  return async (dispatch) => {
     const resource = `${region}/summoners?names=${name}`;
     dispatch(summonerRequest(region, name));
     try {
@@ -76,7 +76,7 @@ function fetchSummoner(region, name) {
 }
 
 function fetchMatches(region, { name, id }) {
-  return async function thunk(dispatch) {
+  return async (dispatch) => {
     const resource = `${region}/summoners/${id}/matches`;
     dispatch(matchesRequest(region, name));
     try {
@@ -96,7 +96,7 @@ function shouldFetchMatches(state, region, name) {
 }
 
 export function fetchMatchesIfNeeded(region, summoner) {
-  return async function thunk(dispatch, getState) {
+  return async (dispatch, getState) => {
     if (shouldFetchMatches(getState(), region, summoner)) {
       dispatch(fetchMatches(region, summoner));
     }

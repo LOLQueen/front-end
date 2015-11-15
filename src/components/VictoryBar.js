@@ -35,7 +35,7 @@ const styles = {
 };
 
 VictoryBar.propTypes = {
-  didWin: PropTypes.bool.isRequired,
+  victory: PropTypes.bool.isRequired,
 };
 
 export default VictoryBar;

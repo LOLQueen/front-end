@@ -25,7 +25,11 @@ module.exports = {
     }],
     loaders: [{
       test: /\.js$/,
-      loaders: ['react-hot', 'babel-loader?stage=0', 'eslint-loader'],
+      loaders: [
+        'react-hot',
+        'babel?presets=react&presets=es2015&presets=stage-0',
+        'eslint',
+      ],
       exclude: /node_modules/,
     }, {
       test: /\.scss$/,

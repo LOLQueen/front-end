@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { Map, List } from 'immutable';
 
 const PlayerList = ({ data: players }) => {
-  console.log(players.toJS());
   const blueTeam = players.get('blue', List());
   const purpleTeam = players.get('purple', List());
 

@@ -9,10 +9,12 @@ import SpellIcon from './SpellIcon';
 import ChampionIcon from './ChampionIcon';
 import MatchStats from './MatchStats';
 import VictoryBar from './VictoryBar';
+import PlayerList from './PlayerList';
 
 const Match = ({ data: match }) => {
   const spells = match.get('spells', List());
   const items = match.get('items', List());
+  const fellowPlayers = match.get('teams', List());
   const trinket = match.get('trinket', null);
   const champion = match.get('champion', null);
   const stats = match.get('stats', null);
@@ -48,6 +50,9 @@ const Match = ({ data: match }) => {
             <ItemIcon data={trinket} />
           </div>
         </div>
+      </div>
+      <div>
+        <PlayerList data={fellowPlayers} />
       </div>
     </div>
   );

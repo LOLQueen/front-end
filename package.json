@@ -1,6 +1,9 @@
 {
   "name": "LOLQueen-front-end",
   "version": "0.1.0",
+  "engines": {
+    "node": ">= 5.0.0"
+  },
   "description": "LOlQueen's front-end implemented with react+redux.",
   "scripts": {
     "start": "webpack-dev-server --hot --progress",

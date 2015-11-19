@@ -55,7 +55,7 @@ function mapReduxStateToProps(state) {
 }
 
 const styles = {
-  backgroundColor: 'white',
+  'backgroundImage': 'url("./src/assets/summoner-page.jpg")',
 };
 
 export default connect(mapReduxStateToProps)(SummonerPage);

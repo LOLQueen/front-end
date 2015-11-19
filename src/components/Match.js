@@ -51,7 +51,7 @@ const Match = ({ data: match }) => {
           </div>
         </div>
       </div>
-      <div>
+      <div className="flex flex-grow flex-center .flex-end px2">
         <PlayerList data={fellowPlayers} />
       </div>
     </div>
@@ -73,9 +73,6 @@ const styles = {
     false: {
       boxShadow: `0 0 ${SCALE(-1)} ${SCALE(-100)} red`,
     },
-  },
-  items: {
-    justifyContent: 'flex-end',
   },
   spells: {
     justifyContent: 'space-around',

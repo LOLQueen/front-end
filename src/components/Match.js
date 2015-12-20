@@ -9,12 +9,10 @@ import SpellIcon from './SpellIcon';
 import ChampionIcon from './ChampionIcon';
 import MatchStats from './MatchStats';
 import VictoryBar from './VictoryBar';
-import PlayerList from './PlayerList';
 
 const Match = ({ data: match }) => {
   const spells = match.get('spells', List());
   const items = match.get('items', List());
-  const fellowPlayers = match.get('teams', List());
   const trinket = match.get('trinket', null);
   const champion = match.get('champion', null);
   const stats = match.get('stats', null);
@@ -51,9 +49,6 @@ const Match = ({ data: match }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-grow flex-center .flex-end px2">
-        <PlayerList data={fellowPlayers} />
-      </div>
     </div>
   );
 };
@@ -65,6 +60,7 @@ Match.propTypes = {
 const styles = {
   base: {
     backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    width: 'auto',
   },
   shadows: {
     true: {

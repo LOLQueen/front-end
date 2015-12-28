@@ -1,9 +1,10 @@
+const webpack = require('webpack');
+
 function getEntrySources(sources) {
   if (process.env.NODE_ENV !== 'production') {
     sources.push('webpack-dev-server/client?http://localhost:8080');
     sources.push('webpack/hot/only-dev-server');
   }
-
   return sources;
 }
 
@@ -18,6 +19,10 @@ module.exports = {
     publicPath: 'http://localhost:8080/',
     filename: 'dist/[name].js',
   },
+  plugins: [
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
+  ],
   module: {
     preLoaders: [{
       test: /\.js$/,
@@ -26,8 +31,7 @@ module.exports = {
     loaders: [{
       test: /\.js$/,
       loaders: [
-        'react-hot',
-        'babel?presets=react&presets=es2015&presets=stage-0',
+        'babel',
         'eslint',
       ],
       exclude: /node_modules/,

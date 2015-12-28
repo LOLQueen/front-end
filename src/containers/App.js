@@ -1,11 +1,14 @@
 import React, { Component } from 'react';
 
 class App extends Component {
+  static propTypes = {
+    children: React.PropTypes.node,
+  };
+
   render() {
-    const { props } = this;
     return (
       <div>
-        {props.children}
+        { this.props.children }
       </div>
     );
   }

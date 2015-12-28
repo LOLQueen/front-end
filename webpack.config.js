@@ -1,23 +1,18 @@
 const webpack = require('webpack');
-
-function getEntrySources(sources) {
-  if (process.env.NODE_ENV !== 'production') {
-    sources.push('webpack-dev-server/client?http://localhost:8080');
-    sources.push('webpack/hot/only-dev-server');
-  }
-  return sources;
-}
+const path = require('path');
 
 module.exports = {
   devtool: process.env.NODE_ENV !== 'production' ? 'eval-source-map' : '',
   entry: {
-    bundle: getEntrySources([
-      './src/app.js',
-    ]),
+    bundle: [
+      'webpack-hot-middleware/client',
+      './src/app',
+    ],
   },
   output: {
-    publicPath: 'http://localhost:8080/',
-    filename: 'dist/[name].js',
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
+    publicPath: '/static/',
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),

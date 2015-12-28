@@ -55,7 +55,7 @@ function mapReduxStateToProps(state) {
 }
 
 const styles = {
-  'backgroundImage': 'url("./src/assets/summoner-page.jpg")',
+  'backgroundImage': `url(${require('../assets/summoner-page.jpg')})`,
 };
 
 export default connect(mapReduxStateToProps)(SummonerPage);

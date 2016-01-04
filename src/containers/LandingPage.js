@@ -9,10 +9,9 @@ const styles = {
   'alignItems': 'center',
   'justifyContent': 'center',
   'flexDirection': 'column',
-  'backgroundImage': 'url("./src/assets/landing.jpg")',
+  'backgroundImage': `url(${require('../assets/landing.jpg')})`,
   'backgroundSize': 'cover',
 };
-
 
 class LandingPage extends Component {
   static propTypes = {

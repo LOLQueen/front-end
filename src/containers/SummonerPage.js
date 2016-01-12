@@ -13,7 +13,7 @@ class SummonerPage extends Component {
     params: PropTypes.object.isRequired,
     summoner: PropTypes.instanceOf(Map).isRequired,
     dispatch: PropTypes.func.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { dispatch } = this.props;
@@ -24,10 +24,14 @@ class SummonerPage extends Component {
   render() {
     const { summoner } = this.props;
     return (
-      <div className="p2" style={styles}>
-        <div className="container">
-          <SummonerHeader data={summoner.get('data')}/>
-          <MatchList matches={summoner.get('matches', List())} />
+      <div className="p2" style={styles.summonerPage}>
+        <div className="container flex flex-column flex-end">
+          <div style={{ width: '100%' }}>
+            <SummonerHeader data={summoner.get('data')}/>
+          </div>
+          <div style={styles.matchList}>
+            <MatchList matches={summoner.get('matches', List())} />
+          </div>
         </div>
       </div>
     );
@@ -55,7 +59,12 @@ function mapReduxStateToProps(state) {
 }
 
 const styles = {
-  'backgroundImage': `url(${require('../assets/summoner-page.jpg')})`,
+  summonerPage: {
+    backgroundImage: `url(${require('../assets/summoner-page.jpg')})`,
+  },
+  matchList: {
+    width: '70%',
+  },
 };
 
 export default connect(mapReduxStateToProps)(SummonerPage);

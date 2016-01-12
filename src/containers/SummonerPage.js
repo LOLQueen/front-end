@@ -13,7 +13,7 @@ class SummonerPage extends Component {
     params: PropTypes.object.isRequired,
     summoner: PropTypes.instanceOf(Map).isRequired,
     dispatch: PropTypes.func.isRequired,
-  }
+  };
 
   componentWillMount() {
     const { dispatch } = this.props;

@@ -62,6 +62,7 @@ const styles = {
   summonerPage: {
     backgroundImage: `url(${require('../assets/summoner-page.png')})`,
     backgroundAttachment: 'fixed',
+    minHeight: '100vh',
   },
   matchList: {
     width: '100%',

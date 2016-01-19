@@ -60,10 +60,11 @@ function mapReduxStateToProps(state) {
 
 const styles = {
   summonerPage: {
-    backgroundImage: `url(${require('../assets/summoner-page.jpg')})`,
+    backgroundImage: `url(${require('../assets/summoner-page.png')})`,
+    backgroundAttachment: 'fixed',
   },
   matchList: {
-    width: '70%',
+    width: '100%',
   },
 };
 

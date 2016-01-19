@@ -40,7 +40,7 @@ const Match = ({ data: match }) => {
       </div>
       <div className="flex flex-justify flex-center flex-grow px2">
         <MatchStats data={stats}/>
-        <div className="flex flex-grow px3" style={{
+        <div className="flex px3" style={{
           ...styles.items,
         }}>
           <div> {itemsJSX} </div>
@@ -59,7 +59,7 @@ Match.propTypes = {
 
 const styles = {
   base: {
-    backgroundColor: 'rgba(0, 0, 0, 0.75)',
+    backgroundColor: 'rgba(0, 0, 0, 0.85)',
     width: 'auto',
   },
   shadows: {
